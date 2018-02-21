@@ -1,0 +1,14 @@
+Package: workspace
+Title: Organising my workspace
+Version: 1.0.0
+Authors@R: c(
+  person("Robrecht", "Cannoodt", email="robrecht.cannoodt@gmail.com", role=c("aut","cre")))
+Description: This package contains code to organise code and data within my workspace.
+Depends: 
+  R (>= 3.4.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/rcannood/workspace
+BugReports: https://github.com/rcannood/workspace/issues
+RoxygenNote: 6.0.1
