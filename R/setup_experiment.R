@@ -31,8 +31,8 @@ get_workspace_folder <- function() {
 #' dev.off()
 #' }
 project <- function(project_id) {
-  # check whether the working directory is indeed the dynalysis folder
-  dyn_fold <- get_dynalysis_folder()
+  # check whether the working directory is indeed the workspace folder
+  fold <- get_workspace_folder()
 
   # set option
   options(workspace_project_id = project_id)
@@ -43,7 +43,7 @@ project_subfolder <- function(path) {
   function(filename = "", project_id = NULL) {
     filename <- paste0(filename, collapse = "")
 
-    dyn_fold <- get_workspace_folder()
+    work_fold <- get_workspace_folder()
 
     # check whether exp_id is given
     if (is.null(project_id)) {
@@ -56,7 +56,7 @@ project_subfolder <- function(path) {
     }
 
     # determine the full path
-    full_path <- paste0(dyn_fold, "/", path, "/", project_id, "/")
+    full_path <- paste0(work_fold, "/", path, "/", project_id, "/")
 
     # create if necessary
     dir.create(full_path, recursive = TRUE, showWarnings = FALSE)
@@ -80,5 +80,5 @@ raw_file <- project_subfolder("data/raw_data")
 
 #' @rdname project
 #' @export
-result_file <- project_subfolder("data/figures")
+result_file <- project_subfolder("data/result")
 
