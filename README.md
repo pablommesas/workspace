@@ -27,7 +27,7 @@ write_rds(data, derived_data("data.rds"))
 
 # save a plot at /home/user/Workspace/data/result/myproject/myplot.pdf
 g <- ggpot(data) + geom_point(aes(x, y))
-ggsave(result_file("myplot.pdf), g, width = 10, height = 10)
+ggsave(result_file("myplot.pdf"), g, width = 10, height = 10)
 
 # read data from a different project, located at /home/user/Workspace/data/derived_data/some_other_project/data.rds
 old_data <- read_rds(derived_data("data.rds", "some_other_project"))
