@@ -11,16 +11,17 @@ export MY_WORKSPACE_PATH=/home/user/Workspace
 
 It will assume the following structure, in your workspace:
 
-- $MY_WORKSPACE_PATH/projects: Your R code
-- $MY_WORKSPACE_PATH/data/raw_data: Any data you created or download that you certainly never want to delete
-- $MY_WORKSPACE_PATH/data/derived_data: Data reproducible by scripts and raw data; you should be able to safely delete this folder.
-- $MY_WORKSPACE_PATH/data/result: Any figures or data objects that you save
+- `$MY_WORKSPACE_PATH/projects`: Your R code
+- `$MY_WORKSPACE_PATH/data/raw_data`: Any data you created or download that you certainly never want to delete
+- `$MY_WORKSPACE_PATH/data/derived_data`: Data reproducible by scripts and raw data; you should be able to safely delete this folder.
+- `$MY_WORKSPACE_PATH/data/result`: Any figures or data objects that you save
 
 An R script located at `/home/user/Workspace/projects/myproject/script.R` could contain the following:
 ```R
 library(tidyverse)
 library(workspace)
 
+# you need to call this first, to let workspace know in which project/subdirectory you're working in
 project("myproject")
 
 # save data at /home/user/Workspace/data/derived_data/myproject/data.rds
