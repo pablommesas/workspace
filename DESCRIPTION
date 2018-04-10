@@ -12,3 +12,7 @@ LazyData: true
 URL: https://github.com/rcannood/workspace
 BugReports: https://github.com/rcannood/workspace/issues
 RoxygenNote: 6.0.1
+Imports:
+  readr,
+  git2r,
+  usethis
