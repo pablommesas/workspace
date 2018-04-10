@@ -16,15 +16,19 @@ It will assume the following structure, in your workspace:
 - `$MY_WORKSPACE_PATH/$PROJECT_ID/derived_data`: Data reproducible by scripts and raw data; you should be able to safely delete this folder.
 - `$MY_WORKSPACE_PATH/$PROJECT_ID/result`: Any figures or data objects that you save
 
-An R script located at `/home/user/Workspace/projects/myproject/script.R` could contain the following:
+An R script located at `/home/user/Workspace/myproject/R/script.R` could contain the following:
 ```R
 library(tidyverse)
 library(workspace)
 
 # you need to call this first, to let workspace know in which project/subdirectory you're working in
-project("myproject")
+# this function will create the necessary git repositories and r project files.
+project_init("myproject") 
 
-# save data at /home/user/Workspace/data/derived_data/myproject/data.rds
+# let workspace know what experiment you're working on
+project("myproject", experiment_id = "my_first_experiment")
+
+# save data at /home/user/Workspace/myproject/derived_data/my_first_experiment/data.rds
 data <- tribble(
   ~x, ~y, 
   1,  2,
@@ -33,7 +37,7 @@ data <- tribble(
 )
 write_rds(data, derived_file("data.rds"))
 
-# save a plot at /home/user/Workspace/data/result/myproject/myplot.pdf
+# save a plot at /home/user/Workspace/myproject/result/my_first_experiment/myplot.pdf
 g <- ggpot(data) + geom_point(aes(x, y))
 ggsave(result_file("myplot.pdf"), g, width = 10, height = 10)
 
