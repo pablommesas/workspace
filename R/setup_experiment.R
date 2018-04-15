@@ -48,7 +48,7 @@ project <- function(project_id, experiment_id = NULL) {
 #'
 #' @export
 init_project <- function(project_id) {
-  project(project_id)
+  project(project_id, experiment_id = "")
 
   project_folder <- root_file("")
 
