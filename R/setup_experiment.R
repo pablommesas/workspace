@@ -107,7 +107,7 @@ root_file <- project_subfolder("")
 
 #' @rdname project
 #' @export
-code_file <- project_subfolder("R")
+code_file <- project_subfolder("scripts")
 
 #' @rdname project
 #' @export
