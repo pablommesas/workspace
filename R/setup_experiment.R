@@ -52,8 +52,13 @@ init_project <- function(project_id) {
 
   project_folder <- root_file("")
 
+  code_file()
+  derived_file()
+  raw_file()
+  result_file()
+
   git2r::init(project_folder)
-  readr::write_lines(c("derived_data", "raw_data"), root_file(".gitignore"))
+  readr::write_lines(c("raw_data"), root_file(".gitignore"))
 
   usethis::create_project(path = project_folder, rstudio = TRUE)
 }
