@@ -42,10 +42,6 @@ root_file <- project_subfolder("")
 
 #' @rdname project
 #' @export
-R_file <- project_subfolder("R")
-
-#' @rdname project
-#' @export
 script_file <- project_subfolder("scripts")
 
 #' @rdname project

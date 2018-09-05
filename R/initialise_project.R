@@ -12,16 +12,30 @@ initialise_project <- function(project_id) {
 
   project_folder <- root_file("")
 
-  code_file()
+  # create r package
+  usethis::create_package(
+    path = root_file("package"),
+    rstudio = TRUE,
+    open = FALSE,
+    fields = list(Package = project_id)
+  )
+
+  # create folders
   derived_file()
   raw_file()
   result_file()
 
+  # initialise git repository
   git2r::init(project_folder)
   readr::write_lines(c("derived_data"), root_file(".gitignore"), append = TRUE)
   readr::write_lines(c("raw_data", "derived_data", "results", "scripts"), root_file(".Rbuildignore"), append = TRUE)
 
-  usethis::create_project(path = project_folder, rstudio = TRUE)
+  # move project file
+  pack_file <- root_file(c(project_id, ".Rproj"))
+  file.rename(root_file(c("package/", project_id, ".Rproj")), pack_file)
+  lines <- readr::read_lines(pack_file)
+  lines <- c(lines, "PackagePath: package")
+  readr::write_lines(lines, pack_file)
 }
 
 #' @rdname initialise_project

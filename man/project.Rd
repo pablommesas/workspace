@@ -3,7 +3,6 @@
 \name{project}
 \alias{project}
 \alias{root_file}
-\alias{R_file}
 \alias{script_file}
 \alias{derived_file}
 \alias{raw_file}
@@ -13,8 +12,6 @@
 project(project_id, experiment_id = NULL)
 
 root_file(filename = "", project_id = NULL, experiment_id = NULL)
-
-R_file(filename = "", project_id = NULL, experiment_id = NULL)
 
 script_file(filename = "", project_id = NULL, experiment_id = NULL)
 
