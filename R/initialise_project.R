@@ -32,7 +32,7 @@ initialise_project <- function(project_id) {
 
   # move project file
   pack_file <- root_file(c(project_id, ".Rproj"))
-  file.rename(root_file(c("package/", project_id, ".Rproj")), pack_file)
+  file.rename(root_file("package/package.Rproj"), pack_file)
   lines <- readr::read_lines(pack_file)
   lines <- c(lines, "PackagePath: package")
   readr::write_lines(lines, pack_file)
