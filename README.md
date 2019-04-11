@@ -5,7 +5,7 @@ A package for allowing easy management of your project workspace.
 ## Installation
 You can install the package directly from GitHub:
 ```R
-devtools::install_github("rcannood/workspace")
+devtools::install_github("pablommesas/workspace")
 ```
 
 You also need to set an environment variable `MY_WORKSPACE_PATH`. 
